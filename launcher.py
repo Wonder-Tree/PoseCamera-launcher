@@ -3,7 +3,7 @@ from glob import glob
 import importlib
 import os
 import json
-import tensorflow
+import posecamera
 import pygame
 
 from ctypes import windll

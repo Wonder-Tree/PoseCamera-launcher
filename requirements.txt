@@ -1,0 +1,6 @@
+pygame==2.0.0
+opencv_python==4.5.1.48
+numpy==1.19.5
+posecamera==2.1.1
+pywebview==3.4
+webview==0.1.5
