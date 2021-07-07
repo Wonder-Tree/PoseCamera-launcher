@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link href="./css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="./css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center title"> WonderGames <small>Lite</small></h1>
+            <p> WonderGames (lite) is an Open Source paltform which aim to have variety of 
+                augmneted reality games built on the top of PoseCamera sdk helps in Motor skill,
+                Muscles strecting, hand/eye coordination and educational stuff.
+            </p>
+
+            <div class="games"></div>
+        </div>
+        
+        <script src="./js/jquery-3.6.0.slim.min.js"></script>
+        <script>
+            window.addEventListener('pywebviewready', function() {
+                window.pywebview.api.init().then(function(response) {
+                    console.log(response);
+                    response.forEach(game => {
+                        $(".games").append(`
+                            <div class="game" data-module="${game.entry}">
+                                <img src="../${game.path + "/" + game.icon}" class="game-icon">
+                                <div class="game-info">
+                                    <div class="game-title">${game.title}</div>
+                                    <div class="game-description">${game.description.substr(0, 100)}..</div>
+                                    <div class="game-controls">
+                                        <a href="#" class="play" data-module="${game.entry}"> <i class="fa fa-play"></i> Play </a>
+                                    </div>
+                                </div>
+                            </div>
+                        `)
+                    });
+
+                    $(".game .play").on("click", function(e) {
+                        e.preventDefault();
+                        console.log(e.target.getAttribute("data-module"))
+                        window.pywebview.api.run(
+                            $(this).data("module")
+                        ).then(function(){
+                            console.log("running");
+                        });
+                    });
+                })
+
+                
+            });
+        </script>
+    </body>
+</html>
