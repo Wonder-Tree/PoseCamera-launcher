@@ -1,3 +1,4 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/wonder-tree/posecamera-launcher/badge)](https://www.codefactor.io/repository/github/wonder-tree/posecamera-launcher)
 # PoseCamera Launcher
 
 PoseCamera launcher is platform to integrate all games based PoseCamera SDK. Its allows you to build and luanch different games from one platform.
